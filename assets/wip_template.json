@@ -18,36 +18,6 @@
       "SpecialStyle": "Boolean",
       "WidescreenStoryboard": "Boolean",
       "SamplesMatchPlaybackRate": "Boolean"
-    },
-
-    "Editor": {
-      "Bookmarks": "Integer",
-      "DistanceSpacing": "Decimal",
-      "BeatDivisor": "Decimal",
-      "GridSize": "Integer",
-      "TimelineZoom": "Decimal"
-    },
-
-    "Metadata": {
-      "Title": "String", 
-      "TitleUnicode": "String", 
-      "Artist": "String", 
-      "ArtistUnicode": "String", 
-      "Creator": "String", 
-      "Version": "String", 
-      "Source": "String", 
-      "Tags": "String", 
-      "BeatmapID": "Integer", 
-      "BeatmapSetID": "Integer"
-    },
-
-    "Difficulty": {
-      "HPDrainRate": "Decimal", 
-      "CircleSize": "Decimal", 
-      "OverallDifficulty": "Decimal", 
-      "ApproachRate": "Decimal", 
-      "SliderMultiplier": "Decimal", 
-      "SliderTickRate": "Decimal"
     }
   }
 }
