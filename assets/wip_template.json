@@ -1,0 +1,53 @@
+{
+  "format_version": "osu file format v14",
+  "sections": {
+    "General": {
+      "AudioFilename": "String",
+      "AudioLeadIn": "Integer", 
+      "PreviewTime": "Integer",
+      "Countdown": "Integer",
+      "SampleSet": "String",
+      "StackLeniency": "Decimal",
+      "Mode": "Integer",
+      "LetterboxInBreaks": "Boolean",
+      "UseSkinSprites": "Boolean",
+      "OverlayPosition": "String",
+      "SkinPreference": "String",
+      "EpilepsyWarning": "Boolean",
+      "CountdownOffset": "Integer",
+      "SpecialStyle": "Boolean",
+      "WidescreenStoryboard": "Boolean",
+      "SamplesMatchPlaybackRate": "Boolean"
+    },
+
+    "Editor": {
+      "Bookmarks": "Integer",
+      "DistanceSpacing": "Decimal",
+      "BeatDivisor": "Decimal",
+      "GridSize": "Integer",
+      "TimelineZoom": "Decimal"
+    },
+
+    "Metadata": {
+      "Title": "String", 
+      "TitleUnicode": "String", 
+      "Artist": "String", 
+      "ArtistUnicode": "String", 
+      "Creator": "String", 
+      "Version": "String", 
+      "Source": "String", 
+      "Tags": "String", 
+      "BeatmapID": "Integer", 
+      "BeatmapSetID": "Integer"
+    },
+
+    "Difficulty": {
+      "HPDrainRate": "Decimal", 
+      "CircleSize": "Decimal", 
+      "OverallDifficulty": "Decimal", 
+      "ApproachRate": "Decimal", 
+      "SliderMultiplier": "Decimal", 
+      "SliderTickRate": "Decimal"
+    }
+  }
+}
