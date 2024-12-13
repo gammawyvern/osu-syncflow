@@ -1,6 +1,6 @@
-# Osu! SyncFlow
+# osu! SyncFlow
 
-Osu! SyncFlow is a tool designed to automate the process of beatmap creation for the rhythm game osu!. This tool aims to simplify and speed up beatmap development while providing customization options for mappers.
+osu! SyncFlow is a tool designed to automate the process of beatmap creation for the rhythm game osu!. This tool aims to simplify and speed up beatmap development while providing customization options for mappers.
 
 ---
 
