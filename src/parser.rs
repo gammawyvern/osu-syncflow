@@ -1,5 +1,13 @@
 use std::collections::HashMap;
 
+// enum Value {
+//     Str(String),
+//     Float(f32),
+//     Bool(bool),
+//     Int(i32),
+//     // Need more complex too
+// }
+
 pub fn parse_raw_osu_data(raw_file: &str) -> HashMap<String, Vec<String>> {
     let mut osu_beatmap_data: HashMap<String, Vec<String>> = HashMap::new();
     let mut current_section: Option<String> = None;
@@ -33,7 +41,7 @@ mod tests {
     }
 
     #[test]
-    fn test_parse_raw_osu_data_with_headers() {
+    fn test_parsed_raw_osu_data_has_headers() {
         let raw_file_with_headers = mock_raw_osu_data_simple();
         let parsed_osu_file_with_headers = parse_raw_osu_data(&raw_file_with_headers);
 
@@ -43,7 +51,7 @@ mod tests {
     }
 
     #[test]
-    fn test_parse_raw_osu_data_fields() {
+    fn test_parsed_raw_osu_data_sections_has_fields() {
         let raw_file_with_headers = mock_raw_osu_data_simple();
         let parsed_osu_file_with_headers = parse_raw_osu_data(&raw_file_with_headers);
 
@@ -51,5 +59,15 @@ mod tests {
             assert!(parsed_osu_file_with_headers.get(&header.to_string()).unwrap().len() > 0);
         }
     }
+
+    // #[test]
+    // fn test_parsed_raw_osu_data_sections_has_data() {
+    //     let raw_file_with_headers = mock_raw_osu_data_simple();
+    //     let parsed_osu_file_with_headers = parse_raw_osu_data(&raw_file_with_headers);
+    //
+    //     for header in HEADERS {
+    //         assert!(parsed_osu_file_with_headers.get(&header.to_string()).unwrap().len() > 0);
+    //     }
+    // }
 }
 
