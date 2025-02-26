@@ -26,8 +26,5 @@ mod tests {
         let not_found = read_raw_osu_file("");
         assert!(not_found.is_err());
     }
-
-    // #[test]
-    // fn test_read_osu_file_no_permissions() {
 }
 
