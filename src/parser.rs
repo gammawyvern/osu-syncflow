@@ -1,13 +1,16 @@
 use std::collections::HashMap;
 
-fn parse_raw_osu_file(raw_file: &str) -> HashMap<String, String> {
-    let mut osu_beatmap_data = HashMap::new();
+pub fn parse_raw_osu_file(raw_file: &str) -> HashMap<String, Vec<String>> {
+    let mut osu_beatmap_data: HashMap<String, Vec<String>> = HashMap::new();
 
     for line in raw_file.lines() {
-        println!("{}", line);
+        if line.starts_with('[') && line.ends_with(']') {
+            let section_name = line.trim_start_matches('[').trim_end_matches(']').to_string();
+            osu_beatmap_data.entry(section_name).or_insert_with(Vec::new);
+        }
     }
 
-    return osu_beatmap_data;
+    osu_beatmap_data
 }
 
 
@@ -17,7 +20,6 @@ mod tests {
 
     #[test]
     fn test_parse_raw_osu_file_has_general() {
-        // let raw_file_with_general = String::from("[General]\nSome: data");
         let raw_file_with_general = "[General]\nSome: data";
         let parsed_osu_file_with_general = parse_raw_osu_file(raw_file_with_general);
 
