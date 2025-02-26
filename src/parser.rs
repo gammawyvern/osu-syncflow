@@ -20,18 +20,32 @@ mod tests {
 
     const HEADERS: &[&str] = &["General", "Editor", "Metadata", "Difficulty", "Events", "TimingPoints", "Colours", "HitObjects"];
 
-    #[test]
-    fn test_parse_raw_osu_data_with_headers() {
-        let raw_file_with_headers = HEADERS
+    fn mock_raw_osu_data_simple() -> String {
+        HEADERS
             .iter()
             .map(|header| format!("[{}]\nkey: value", header))
             .collect::<Vec<String>>()
-            .join("\n\n");
+            .join("\n\n")
+    }
 
+    #[test]
+    fn test_parse_raw_osu_data_with_headers() {
+        let raw_file_with_headers = mock_raw_osu_data_simple();
         let parsed_osu_file_with_headers = parse_raw_osu_data(&raw_file_with_headers);
 
         for header in HEADERS {
             assert!(parsed_osu_file_with_headers.contains_key(&header.to_string()));
         }
     }
+
+    #[test]
+    fn test_parse_raw_osu_data_fields() {
+        let raw_file_with_headers = mock_raw_osu_data_simple();
+        let parsed_osu_file_with_headers = parse_raw_osu_data(&raw_file_with_headers);
+
+        for header in HEADERS {
+            assert!(parsed_osu_file_with_headers.get(&header.to_string()).unwrap().len() > 0);
+        }
+    }
 }
+
