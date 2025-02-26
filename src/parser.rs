@@ -18,11 +18,20 @@ pub fn parse_raw_osu_file(raw_file: &str) -> HashMap<String, Vec<String>> {
 mod tests {
     use super::*;
 
-    #[test]
-    fn test_parse_raw_osu_file_has_general() {
-        let raw_file_with_general = "[General]\nSome: data";
-        let parsed_osu_file_with_general = parse_raw_osu_file(raw_file_with_general);
+    const HEADERS: &[&str] = &["General", "Editor", "Metadata", "Difficulty", "Events", "TimingPoints", "Colours", "HitObjects"];
 
-        assert!(parsed_osu_file_with_general.contains_key("General"));
+    #[test]
+    fn test_parse_raw_osu_file_with_headers() {
+        let raw_file_with_headers = HEADERS
+            .iter()
+            .map(|header| format!("[{}]\nkey: value", header))
+            .collect::<Vec<String>>()
+            .join("\n\n");
+
+        let parsed_osu_file_with_headers = parse_raw_osu_file(&raw_file_with_headers);
+
+        for header in HEADERS {
+            assert!(parsed_osu_file_with_headers.contains_key(&header.to_string()));
+        }
     }
 }
