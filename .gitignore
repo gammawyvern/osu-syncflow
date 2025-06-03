@@ -1,0 +1,8 @@
+
+# Virtual env
+.venv/
+
+# Python artifacts
+__pycache__/
+*.egg-info/
+
