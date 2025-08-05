@@ -2,3 +2,5 @@
 # Python artifacts
 __pycache__
 
+# IDE
+.idea
