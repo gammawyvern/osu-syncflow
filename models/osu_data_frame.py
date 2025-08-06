@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class HitObject:
+class OsuDataFrame:
     x: int
     y: int
     time: int
@@ -13,3 +13,7 @@ class HitObject:
     slider_length: float
 
     spinner_end_time: int
+
+    timing_beat_length: float
+    timing_meter: int
+    timing_uninherited: bool

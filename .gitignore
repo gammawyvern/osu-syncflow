@@ -1,6 +1,9 @@
 
+# Project output
+out/
+
 # Python artifacts
-__pycache__
+__pycache__/
 
 # IDE
-.idea
+.idea/
