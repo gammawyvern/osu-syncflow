@@ -19,6 +19,5 @@ class TimingPoint:
             time=int(values[0]),
             beat_length=float(values[1]),
             meter=int(values[2]),
-            uninherited=(values[6] != "0"),
+            uninherited=bool(int(values[6])),
         )
-
