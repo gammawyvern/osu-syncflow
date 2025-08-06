@@ -41,7 +41,7 @@ def __parse_hit_circle_from_line(line: str) -> HitObject:
 def __parse_slider_from_line(line: str) -> List[HitObject]:
     chunks: List[str] = line.split(',')
     curve_chunks: List[str] = chunks[5].split('|')
-    curve_type: int = int(curve_chunks[0])
+    curve_type: int = ord(curve_chunks[0])
     curve_points: List[Tuple[int, int]] = [(int(chunks[0]), int(chunks[1]))] + [
         tuple(map(int, xy_str.split(':'))) for xy_str in curve_chunks[1].split(',')
     ]

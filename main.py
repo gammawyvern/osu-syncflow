@@ -1,4 +1,6 @@
+from dataclasses import asdict
 from typing import Dict, List
+import json
 
 from utils import file_parser, line_parser, data_parser
 
@@ -18,12 +20,19 @@ def main():
     # Hit Object Setup
 
     hit_object_lines: List[str] = sections.get("HitObjects")
-    hit_objects: List[HitObject] = [line_parser.parse_hit_object_line(line) for line in hit_object_lines]
+    hit_objects: List[HitObject] = []
+    for line in hit_object_lines:
+        result = line_parser.parse_hit_object_line(line)
+        hit_objects.extend(result if isinstance(result, list) else [result])
 
     # Data Frame Setup
 
     data_frames: List[OsuDataFrame] = data_parser.combine_timing_points_with_hit_objects(timing_points, hit_objects)
 
+
+    # Temp Testing Output
+    with open("./out/data.json", "w") as f:
+        json.dump([asdict(obj) for obj in data_frames], f, indent=4)
 
 
 if __name__ == "__main__":
